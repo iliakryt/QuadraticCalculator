@@ -22,49 +22,46 @@ namespace QuadraticCalculator
                 case "a":
                     Console.WriteLine("Введите a:");
                     double a;
-                    a = Convert.ToDouble(Console.ReadLine());
+                    a = Convert.ToDouble(Console.ReadLine().Replace('.',','));
                     return a;
 
                 case "b": 
                     Console.WriteLine("Введите b:");
                     double b;
-                    b = Convert.ToDouble(Console.ReadLine());
+                    b = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
                     return b;
 
                 case "c":
                     Console.WriteLine("Введите c:");
                     double c;
-                    c = Convert.ToDouble(Console.ReadLine());
+                    c = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
                     return c;
 
                 default: return 0;
             }
-            
-
-       
         }
 
         public static double Descriminant(double a, double b, double c)
         {
-            double d = (b * b) - (4 * a * c);
+            double d = Math.Round(((b * b) - (4 * a * c)), 2);
             return d;
         }
 
         public static double DescriminantEqualsZero(double a, double b) 
         {
-            double x = (-b / (2 * a));
+            double x = Math.Round((-b / (2 * a)), 2);
             return x;
         }
 
         public static double DescriminantLargeZeroOneRoot(double a, double b, double d)
         {
-            double x1 = ((-b - Math.Sqrt(d)) / (2 * a));
+            double x1 = Math.Round(((-b - Math.Sqrt(d)) / (2 * a)), 2);
             return x1;
         }
 
         public static double DescriminantLargeZeroTwoRoot(double a, double b, double d)
         {
-            double x2 = ((-b + Math.Sqrt(d)) / (2 * a));
+            double x2 = Math.Round(((-b + Math.Sqrt(d)) / (2 * a)), 2);
             return x2;
         }
 
@@ -72,8 +69,8 @@ namespace QuadraticCalculator
         {
             if (checkD < 0.00)
             {
-                string equationSolutionZero = "Дискриминант меньше нуля. Корней нет.";
-                return equationSolutionZero;
+                string equationSolutionSmallerZero = "Дискриминант меньше нуля. Корней нет.";
+                return equationSolutionSmallerZero;
             }
             else if (checkD == 0.00)
             {
