@@ -2,7 +2,7 @@
 
 namespace QuadraticCalculator
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -10,47 +10,39 @@ namespace QuadraticCalculator
             double a = Item("a");
             double b = Item("b");
             double c = Item("c");
-
             double d = Descriminant(a, b, c);
             string answer = CheckDescriminant(d, a, b);
             Console.WriteLine(answer);
             Console.ReadKey();
-
-
-
         }
-        //метод получения 
+
         public static double Item(string acb)
         {
             switch (acb) {
                 case "a":
-                    //Получаем значение  a
                     Console.WriteLine("Введите a:");
                     double a;
                     a = Convert.ToDouble(Console.ReadLine());
                     return a;
 
-                case "b":
-                    //Получаем значение b
+                case "b": 
                     Console.WriteLine("Введите b:");
                     double b;
                     b = Convert.ToDouble(Console.ReadLine());
                     return b;
 
                 case "c":
-                    //Получаем значение с
                     Console.WriteLine("Введите c:");
                     double c;
                     c = Convert.ToDouble(Console.ReadLine());
                     return c;
+
+                default: return 0;
             }
-            return 0;
+            
 
-            //double aItem = a;
-            //    return aItem;
-
+       
         }
-
 
         public static double Descriminant(double a, double b, double c)
         {
@@ -58,24 +50,24 @@ namespace QuadraticCalculator
             return d;
         }
 
-        //Решение уравнения под определенные условия
         public static double DescriminantEqualsZero(double a, double b) 
         {
             double x = (-b / (2 * a));
             return x;
         }
+
         public static double DescriminantLargeZeroOneRoot(double a, double b, double d)
         {
             double x1 = ((-b - Math.Sqrt(d)) / (2 * a));
             return x1;
         }
+
         public static double DescriminantLargeZeroTwoRoot(double a, double b, double d)
         {
             double x2 = ((-b + Math.Sqrt(d)) / (2 * a));
             return x2;
         }
 
-        //Проверка условия
         public static string CheckDescriminant(double checkD, double a, double b)
         {
             if (checkD < 0.00)
@@ -96,8 +88,7 @@ namespace QuadraticCalculator
                 string equationSolutionLargeZero = String.Format("Дискриминант равен {0}. Первый корень равен {1}. Второй корень равен {2}", checkD, x1, x2);
                 return equationSolutionLargeZero;
             }
-            else { return "Ошибка"; }
-            
+            else { return "Ошибка"; }  
         }
     }
 }
